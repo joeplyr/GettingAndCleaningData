@@ -1,3 +1,9 @@
+## Introduction
+
+This asignment pertains to the Getting and Cleaning Data Coursera course.  It involves taking data from the UCI Machine Learning Depository.
+
+## Analysis
+
 Running the run_analysis.R script will perfrom the following actions:
 
 1) Merges the training and the test sets to create one data set.
