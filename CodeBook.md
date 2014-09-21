@@ -58,29 +58,29 @@ The following files are available for the train and test data. Their description
 
 ## Sample R Code Depicting Tidy Data
 
-clean.data = function() {
-    # Download the data
+    clean.data = function() 
+    -Download the data
     download.data()
     
-    # merge training and test datasets.
+    -merge training and test datasets.
     merged <- merge.datasets()
     
-    # Extract only the measurements of the mean and standard deviation for each measurement
+    -Extract only the measurements of the mean and standard deviation for each measurement
     mstd <- extract.mean.and.std(merged$x)
     
-    # Name activities
+    -Name activities
     actnam <- name.activities(merged$y)
     
-    # Use descriptive column name for subjects
+    -Use descriptive column name for subjects
     colnames(merged$subject) <- c("subject")
     
-    # Combine data frames into one
+    -Combine data frames into one
     combined <- bind.data(mstd, actnam, merged$subject)
     
-    # Create tidy dataset
+    -Create tidy dataset
     tidy <- create.tidy.dataset(combined)
     
-    # Write the tidy dataset as a csv
+    -Write the tidy dataset as a csv
     write.csv(tidy, "UCI_HAR_tidy.csv", row.names=FALSE)
     
-}
+
