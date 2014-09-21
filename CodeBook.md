@@ -54,3 +54,33 @@ The following files are available for the train and test data. Their description
 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 
 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+
+
+## Sample R Code Depicting Tidy Data
+
+clean.data = function() {
+    # Download the data
+    download.data()
+    
+    # merge training and test datasets.
+    merged <- merge.datasets()
+    
+    # Extract only the measurements of the mean and standard deviation for each measurement
+    mstd <- extract.mean.and.std(merged$x)
+    
+    # Name activities
+    actnam <- name.activities(merged$y)
+    
+    # Use descriptive column name for subjects
+    colnames(merged$subject) <- c("subject")
+    
+    # Combine data frames into one
+    combined <- bind.data(mstd, actnam, merged$subject)
+    
+    # Create tidy dataset
+    tidy <- create.tidy.dataset(combined)
+    
+    # Write the tidy dataset as a csv
+    write.csv(tidy, "UCI_HAR_tidy.csv", row.names=FALSE)
+    
+}
