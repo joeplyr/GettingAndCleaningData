@@ -1,8 +1,8 @@
-##Introduction
+Introduction
 
 This asignment pertains to the Getting and Cleaning Data Coursera course.  It involves taking data from the UCI Machine Learning Depository.
 
-##Analysis
+Analysis
 
 Running the run_analysis.R script will perfrom the following actions:
 
