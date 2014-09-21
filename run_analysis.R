@@ -89,19 +89,24 @@ clean.data = function() {
     download.data()
     
     # merge training and test datasets.
-    
     merged <- merge.datasets()
+    
     # Extract only the measurements of the mean and standard deviation for each measurement
-  
-    cx <- extract.mean.and.std(merged$x)
+    mstd <- extract.mean.and.std(merged$x)
+    
     # Name activities
-    cy <- name.activities(merged$y)
+    actnam <- name.activities(merged$y)
+    
     # Use descriptive column name for subjects
     colnames(merged$subject) <- c("subject")
+    
     # Combine data frames into one
-    combined <- bind.data(cx, cy, merged$subject)
+    combined <- bind.data(mstd, actnam, merged$subject)
+    
     # Create tidy dataset
     tidy <- create.tidy.dataset(combined)
-    # Write tidy dataset as csv
+    
+    # Write the tidy dataset as a csv
     write.csv(tidy, "UCI_HAR_tidy.csv", row.names=FALSE)
+    
 }
